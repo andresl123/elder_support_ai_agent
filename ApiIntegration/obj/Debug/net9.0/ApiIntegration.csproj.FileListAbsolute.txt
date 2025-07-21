@@ -97,3 +97,4 @@
 /home/andre/RiderProjects/ApiIntegration/ApiIntegration/obj/Debug/net9.0/ApiIntegration.pdb
 /home/andre/RiderProjects/ApiIntegration/ApiIntegration/obj/Debug/net9.0/ApiIntegration.genruntimeconfig.cache
 /home/andre/RiderProjects/ApiIntegration/ApiIntegration/obj/Debug/net9.0/ref/ApiIntegration.dll
+/home/andre/RiderProjects/ApiIntegration/ApiIntegration/obj/Debug/net9.0/ApiIntegration.sourcelink.json

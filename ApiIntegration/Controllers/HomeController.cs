@@ -12,9 +12,25 @@ public class HomeController : Controller
         _fastApiService = fastApiService;
     }
 
-    public async Task<IActionResult> Index()
+    [HttpGet]
+    public IActionResult Index(string? sessionId)
     {
-        var messages = await _fastApiService.GetFastApiResponseAsync();
-        return View(messages); // pass List<string> directly to view
+        ViewBag.SessionId = sessionId;
+        return View(new List<string>());
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> CreateSessionFromIndex()
+    {
+        var sessionId = await _fastApiService.CreateSessionAsync();
+        return RedirectToAction("Index", new { sessionId });
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> CallAgent(string sessionId)
+    {
+        var messages = await _fastApiService.GetFastApiResponseAsync(sessionId);
+        ViewBag.SessionId = sessionId;
+        return View("Index", messages);
     }
 }

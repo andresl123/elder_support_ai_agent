@@ -1,10 +1,9 @@
 using ApiIntegration.Models;
-
-namespace ApiIntegration.Services;
-
 using System.Net.Http.Headers;
 using System.Text;
 using Newtonsoft.Json;
+
+namespace ApiIntegration.Services;
 
 public class FastApiService
 {
@@ -15,7 +14,29 @@ public class FastApiService
         _httpClient = httpClient;
     }
 
-    public async Task<List<string>> GetFastApiResponseAsync()
+    public async Task<string> CreateSessionAsync()
+    {
+        var url = "http://asl.serveblog.net:8000/apps/manager/users/k8k_id/sessions";
+
+        var requestBody = new
+        {
+            state = new { additionalProp1 = new { } },
+            events = new object[] { }
+        };
+
+        var json = JsonConvert.SerializeObject(requestBody);
+        var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+        var response = await _httpClient.PostAsync(url, content);
+        response.EnsureSuccessStatusCode();
+
+        var responseBody = await response.Content.ReadAsStringAsync();
+        dynamic result = JsonConvert.DeserializeObject(responseBody);
+
+        return result?.id;
+    }
+
+    public async Task<List<string>> GetFastApiResponseAsync(string sessionId)
     {
         var url = "http://asl.serveblog.net:8000/run_sse";
 
@@ -23,7 +44,7 @@ public class FastApiService
         {
             app_name = "manager",
             user_id = "k8k_id",
-            session_id = "42ab7b41-362e-4073-a46c-155367b827b0",
+            session_id = sessionId,
             streaming = false,
             new_message = new NewMessage
             {
@@ -46,12 +67,11 @@ public class FastApiService
 
         var messages = new List<string>();
 
-        // Split response into multiple "data:" sections
         var parts = responseString.Split(new[] { "data: " }, StringSplitOptions.RemoveEmptyEntries);
 
         foreach (var raw in parts)
         {
-            var line = raw.Trim().Split('\n')[0]; // grab only the first line of JSON for each block
+            var line = raw.Trim().Split('\n')[0];
 
             try
             {
@@ -64,12 +84,10 @@ public class FastApiService
             }
             catch
             {
-                // You can log this if needed
                 continue;
             }
         }
 
         return messages;
     }
-
 }
