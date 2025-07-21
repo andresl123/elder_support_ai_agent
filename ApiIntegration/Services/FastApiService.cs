@@ -32,7 +32,7 @@ public class FastApiService
                 {
                     new RequestPart
                     {
-                        text = "The patients health log: Andre is 82 years old. He has medical conditions including Type 2 Diabetes and Hypertension..."
+                        text = "The patients health log: Andre is 82 years old. He has medical conditions including Type 2 Diabetes and Hypertension. He takes Metformin 500mg and Lisinopril 10mg. His mobility status indicates that he walks with a cane indoors but had no outdoor activity today. For meals, he had breakfast and dinner, but skipped lunch. Regarding medications, he took his morning dose but missed the evening one. There were no social interactions today—no calls or visits. A note from the evening mentions that he seemed withdrawn during dinner."
                     }
                 }
             }

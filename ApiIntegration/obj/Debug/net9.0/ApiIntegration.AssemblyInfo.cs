@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ApiIntegration")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+87b4b653012a14698f1ae77643c07067048fb2da")]
 [assembly: System.Reflection.AssemblyProductAttribute("ApiIntegration")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ApiIntegration")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

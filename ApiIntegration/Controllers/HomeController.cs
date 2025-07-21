@@ -1,6 +1,4 @@
-using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
-using ApiIntegration.Models;
 using ApiIntegration.Services;
 
 namespace ApiIntegration.Controllers;
