@@ -1,0 +1,14 @@
+﻿@model List<string>
+
+@{
+    ViewData["Title"] = "FastAPI Response";
+}
+
+<h1>FastAPI Integration Results</h1>
+
+@foreach (var message in Model)
+{
+    <div style="white-space: pre-wrap; margin-bottom: 20px; padding: 15px; background-color: #f2f2f2; border: 1px solid #ccc;">
+        @message
+    </div>
+}

@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "RRvjIO8TYhs=",
+  "success": true,
+  "projectFilePath": "/home/andre/RiderProjects/ApiIntegration/ApiIntegration/ApiIntegration.csproj",
+  "expectedPackageFiles": [
+    "/home/andre/.nuget/packages/newtonsoft.json/13.0.3/newtonsoft.json.13.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
